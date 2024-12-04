@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PageController;
+use App\Http\Controllers\HalController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,18 +18,24 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+// Route::get('/', function () {
+//     return view('home');
+// })->name('home');
 
-Route::get('about', function () {
-    return view('about');
-})->name('about');
+// Route::get('about', function () {
+//     return view('about');
+// })->name('about');
 
-Route::get('contact', function () {
-    return view('contact');
-})->name('contact');
+// Route::get('contact', function () {
+//     return view('contact');
+// })->name('contact');
 
-Route::get('/new', [PageController::class, 'home'])->name('home');
-Route::get('/new/about', [PageController::class, 'about'])->name('about');
-Route::get('/new/contact', [PageController::class, 'contact'])->name('contact');
+// Route::get('/new', [PageController::class, 'home'])->name('home');
+// Route::get('/new/about', [PageController::class, 'about'])->name('about');
+// Route::get('/new/contact', [PageController::class, 'contact'])->name('contact');
+
+
+
+Route::get('/new/home', [HalController::class, 'home'])->name('topmenu1_blade');
+Route::get('/new/about', [HalController::class, 'about'])->name('topmenu2_blade');
+Route::get('new/contact', [HalController::class, 'contact'])->name('topmenu3_blade');
